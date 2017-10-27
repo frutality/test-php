@@ -1,7 +1,8 @@
 # Тестовое задание
 Мой вариант выполнения задачи на https://code-pilots.ru/test-task/
 ## Установка с Docker
-Для запуска проекта используйте docker-composer. Параметры, в том числе настройки соединения с БД, находятся в файле docker-composer.yml: `docker-composer up`.
+1. Для запуска проекта используйте docker-composer. Параметры, в том числе настройки соединения с БД, находятся в файле docker-composer.yml: `docker-composer up`.
+2. Выполните SQL скрипты из каталога `migrations`
 
 ## Установка без Docker
 1. Скопируйте каталоги `app` и `public` на веб-сервер. Запросы должны указывать на `public/index.php`

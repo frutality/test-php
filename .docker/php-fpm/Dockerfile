@@ -17,13 +17,4 @@ RUN apt-get update \
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt \
-  # Install the PHP pdo_mysql extention
-  && docker-php-ext-install pdo_mysql \
-  # Install the PHP pdo_pgsql extention
-  && docker-php-ext-install pdo_pgsql \
-  # Install the PHP gd library
-  && docker-php-ext-configure gd \
-    --enable-gd-native-ttf \
-    --with-jpeg-dir=/usr/lib \
-    --with-freetype-dir=/usr/include/freetype2 && \
-docker-php-ext-install gd
+  && docker-php-ext-install pdo_mysql
