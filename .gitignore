@@ -1,0 +1,5 @@
+# IDE:
+.idea/
+
+# Shared docker volumes
+data/

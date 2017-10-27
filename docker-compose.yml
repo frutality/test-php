@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      
+  nginx:
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    links:
+      - php-fpm
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+  
+  php-fpm:
+    build:
+      context: .
+      dockerfile: .docker/php-fpm/Dockerfile
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: test
+      DB_USERNAME: test
+      DB_PASSWORD: test
+    volumes:
+      - ./:/var/www/html
